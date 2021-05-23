@@ -1,0 +1,293 @@
+/*
+Author       : themes_mountain
+Template Name: James Simmons - Online CV HTML Template
+Version      : 1.0
+*/
+/*=============================================================
+    CSS INDEX
+    =============================
+    01. GENERAL STYLE (body, link color, section-title, preloader btn, overlay, section-padding etc)
+    02. START BOOTSTRAP NAVIGATION OVERRIDES
+    03. START HOME DESIGN
+    04. START ABOUT CONTENT DESIGN
+    05. START SKILL DESIGN
+    06. START EXPERIENCE & EDUCATION DESIGN
+    07. START WORK DESIGN
+    08. START TESTIMONIALS DESIGN
+    09. START CONTACT DESIGN
+    10. START BLOG DESIGN
+    11. START FOOTER DESIGN
+    12. START SECTION TOP DESIGN
+  =============================================================*/
+/*
+* ----------------------------------------------------------------------------------------
+* 01.GENERAL STYLE
+* ----------------------------------------------------------------------------------------
+*/
+body {
+font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+font-size: 16px;
+line-height: 25px;
+color: #444;
+background:#fff;
+font-weight: 400;
+overflow-x:hidden;
+}
+
+
+/* 05.START SKILL DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+.my-skill {background:#f2f7fb;}
+.progress-bar-text {
+	color: #282828;
+	font-size: 14px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.progress-bar-text span { float: right }
+.progress-bar {
+    background: #e8e8e9 none repeat scroll 0 0;
+    box-shadow: 0 0 0;
+    height: 8px;
+    margin: 0 0 20px;
+    position: relative;
+    width: 100%;
+}
+.progress-bar > span {
+    background: #1a6ca2 none repeat scroll 0 0;
+    display: block;
+    height: 100%;
+    width: 0;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 05.END SKILL DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+
+/*
+* ----------------------------------------------------------------------------------------
+* 06.START EXPERIENCE & EDUCATION DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+.main-timeline{
+    margin: 20px 0;
+    position: relative;
+}
+.main-timeline:before{
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #1a6ca2;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.main-timeline .timeline{
+    margin-bottom: 40px;
+    position: relative;
+}
+.main-timeline .timeline:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.main-timeline .icon{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.main-timeline .icon:before,
+.main-timeline .icon:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.33s ease-out 0s;
+}
+.main-timeline .icon:before{
+    background: #fff;
+    border: 2px solid #057885;
+    left: -3px;
+}
+.main-timeline .icon:after{
+    border: 2px solid #1a6ca2;
+    left: 3px;
+}
+.main-timeline .timeline:hover .icon:before{
+    left: 3px;
+}
+.main-timeline .timeline:hover .icon:after{
+    left: -3px;
+}
+.main-timeline .date-content{
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.main-timeline .date-content:before{
+    content: "";
+    width: 32.5%;
+    height: 2px;
+    background: #1a6ca2;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+}
+.main-timeline .date-outer{
+    width: 175px;
+    height: 175px;
+    font-size: 16px;
+    color: #1b1b1b;
+    text-align: center;
+    margin: auto;
+    z-index: 1;
+}
+.main-timeline .date-outer:before,
+.main-timeline .date-outer:after{
+    content: "";
+    width: 175px;
+    height: 175px;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.33s ease-out 0s;
+}
+.main-timeline .date-outer:before{
+    background: #fff;
+    border: 2px solid #057885;
+    left: -6px;
+}
+.main-timeline .date-outer:after{
+    border: 2px solid #1a6ca2;
+    left: 6px;
+}
+.main-timeline .timeline:hover .date-outer:before{
+    left: 6px;
+}
+.main-timeline .timeline:hover .date-outer:after{
+    left: -6px;
+}
+.main-timeline .date{
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 33%;
+    left: 0;
+}
+.main-timeline .month{
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a6ca2;
+}
+.main-timeline .year{
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1b1b1b;
+    line-height: 36px;
+}
+.main-timeline .timeline-content{
+    width: 50%;
+    padding: 20px 0 20px 50px;
+    float: right;
+}
+.main-timeline .title{
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+}
+.main-timeline .description{
+    margin-bottom: 0;
+}
+.main-timeline .timeline:nth-child(2n) .date-content{
+    float: right;
+}
+.main-timeline .timeline:nth-child(2n) .date-content:before{
+    left: 10px;
+}
+.main-timeline .timeline:nth-child(2n) .timeline-content{
+    padding: 20px 50px 20px 0;
+    text-align: right;
+}
+@media only screen and (max-width: 990px){
+    .main-timeline .date-content:before{
+        width: 22.5%;
+    }
+    .main-timeline .timeline-content{
+        padding: 10px 0 10px 30px;
+    }
+    .main-timeline .title{ font-size: 17px; }
+    .main-timeline .timeline:nth-child(2n) .timeline-content{
+        padding: 10px 30px 10px 0;
+    }
+}
+@media only screen and (max-width: 767px){
+    .main-timeline:before{
+        margin: 0;
+        left: 7px;
+    }
+    .main-timeline .timeline{
+        margin-bottom: 20px;
+    }
+    .main-timeline .icon{
+        margin: auto 0;
+    }
+    .main-timeline .date-content{
+        width: 95%;
+        float: right;
+    }
+    .main-timeline .date-content:before{
+        display: none;
+    }
+    .main-timeline .date-outer,
+    .main-timeline .date-outer:before,
+    .main-timeline .date-outer:after{
+        width: 130px;
+        height: 130px;
+    }
+    .main-timeline .date{
+        top: 30%;
+    }
+    .main-timeline .year{
+        font-size: 21px;
+    }
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(2n) .timeline-content{
+        width: 95%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .main-timeline .title{
+        margin-bottom: 10px;
+    }
+}
+/*
+* ----------------------------------------------------------------------------------------
+* 06.END EXPERIENCE & EDUCATION DESIGN
+* ----------------------------------------------------------------------------------------
+*/
+
+.map{}
+.map iframe{width:100%; height: 500px; margin-bottom: -3%;}
