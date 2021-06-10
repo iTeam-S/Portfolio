@@ -1,20 +1,26 @@
 <?php
-
-    /* Checking the id */
-    if (isset($_GET["id"]) && !empty($_GET["id"])) {
-        $id = $_GET["id"];
-    } else {
-        $id = 1;
-    }
-
     /* Connexion to the database */
     try {
         
-        $db = new PDO("mysql:host=HOST;dbname=DATABASE", "USER", "PASSWORD");
+        $db = new PDO("mysql:host=iteam-s.mg;dbname=ITEAMS", "USER", "");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        if (isset($_GET["id"]) && !empty($_GET["id"])){ 
+            $id = $_GET["id"];
+        } else if (isset($_GET["u"]) && !empty($_GET["u"])){
+            $u = $_GET["u"];
+            $req = "SELECT id FROM membre WHERE prenom_usuel = :u";
+            $res = $db->prepare($req);
+            $res->execute(["u" => $u]);
+            $mbr= $res->fetch();
+            $id = $mbr["id"];
+        } else {
+           header('Location: https://www.iteam-s.mg/qui-sommes-nous#Picture');
+            exit(); 
+        }
+
         /* Checking the about infos */
-        $sql1 = "SELECT * FROM membre WHERE id = :id;";
+        $sql1 = "SELECT * FROM membre WHERE id = :id AND actif = 1;";
         $result1 = $db->prepare($sql1);
         $result1->execute(["id" => $id]);
         $membre_info = $result1->fetch();
@@ -41,7 +47,7 @@
 
     /* Variables */
     $fullname = $membre_info["prenom"] . " " . $membre_info["nom"];
-
+ 
     $fonction_pers = explode(",", $membre_info["fonction"]);
     $cv = $membre_info["cv"];
     $description_pers = $membre_info["description"];
@@ -110,8 +116,8 @@
                         <li class="nav-item menu-item"> <a class="nav-link" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
                         <li class="nav-item menu-item"> <a class="nav-link" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
                         <li class="nav-item menu-item"> <a class="nav-link" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link" href="#education" data-scroll-nav="7" style="font-size: 16px;">Formations</a> </li>  
-			            <li class="nav-item menu-item"> <a class="nav-link" href="#contact_menu" data-scroll-nav="7" style="font-size: 16px;">Contacts</a> </li>          
+                        <li class="nav-item menu-item"> <a class="nav-link" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>  
+             	        <li class="nav-item menu-item"> <a class="nav-link" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
                     </ul>
                 </div>
             </nav>
@@ -121,7 +127,7 @@
     <!-- Content -->
     <div class="craig-side-content">
         <!-- Header -->
-        <header class="header valign bg-img" data-scroll-index="0" data-overlay-dark="8" data-background="./assets/img/banner.png" data-stellar-background-ratio="0.5">
+        <header class="header valign bg-img" data-scroll-index="0" data-overlay-dark="8" data-background="<?=$membre_info["pdc"]?>" data-stellar-background-ratio="0.5">
              <div id="particles-js"></div>
             <div class="container">
                 <div class="row">
@@ -131,14 +137,19 @@
                             <span class="typewrite" data-period="2000" data-type='<?= json_encode($fonction_pers); ?>'>
                             <span class="wrap"></span></span></span>
                         </h4>
-                        <a href="./assets/cv/<?= $cv; ?>" class="buton buton-null mt-30 default-button button-black"><span>Télécharger mon CV</span></a>
+                        <?php 
+                            if (!empty($cv))
+                                echo '<a href="./assets/cv/'.$cv.'" class="buton buton-null mt-30 default-button button-black"><span>Télécharger mon CV</span></a>';
+                            else 
+                                echo '<a href="#contact_menu" data-scroll-nav="5" class="buton buton-null mt-30 default-button button-black"><span>Me contacter</span></a>';
+                        ?>
                     </div>
                 </div>
             </div>
         </header>
 
        <!-- About -->
-        <div class="section py-6" id="about" role="doc-part">
+        <div class="section py-6" id="about" role="doc-part" data-scroll-index="1">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="section-content wow slideInLeft">
@@ -155,7 +166,7 @@
                             <img src="<?= $photo_pers; ?>"  alt="">
                         </div>
                         <div class="detailed-profile">
-                            <span class="name"><?= $fullname; ?></span>
+                            <span class="name" style="world-wrap: break-word !important; "><?= $fullname; ?></span>
                             <div class="phone">
                                 <span class="ti-mobile"></span>&nbsp; <?= $tel; ?>
                             </div>
@@ -253,8 +264,8 @@
 		<!-- END TIMELINE -->
 
 		<!-- START EDUCATION -->
-		<section id="education" class="my-education section-padding">
-			<div class="container">
+		<section id="education" class="my-education section-padding" data-scroll-index="4">
+			<div id="educations_menu" class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
 						<h4>Formations et diplômes</h4>
@@ -383,7 +394,7 @@
 <!-- END OF PROJECT -->
 
         <!-- Contact -->
-        <section id="contact_menu" class="contact section-padding" data-scroll-index="7">
+        <section id="contact_menu" class="contact section-padding" data-scroll-index="5">
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
@@ -455,9 +466,9 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <!-- Footer Logo -->
-                     <!--    <div class="footer-logo">
-                            <img src="assets/img/iteams.png" class="logo-img" alt="">
-                        </div> -->
+                        <div class="footer-logo">
+                            <img style="width: 3% !important" src="assets/img/iteams.png" class="logo-img" alt="">
+                        </div> 
                         <!-- Social Media -->
                         <div class="social">
                             <a href="https://facebook.com<?= $facebook; ?>"><i class="fa fa-facebook-f"></i></a>
