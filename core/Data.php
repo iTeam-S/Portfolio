@@ -1,22 +1,7 @@
 <?php
-    function dbconnect()
-    {
-        $servername = "iteam-s.mg";
-        $username = "USER";
-        $password = "";
-        $pdb="mysql:host=$servername;dbname=iteams;utf8mb4";
+     /* ALL THE DATA AND VARIABLES*/
 
-        try 
-        {
-            $db = new PDO($pdb,$username, $password);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $db;
-        }catch(PDOException $e)
-        {
-            die("Errer".$e->getMessage());
-        }
-    }
-
+    require("./models/index_model.php");
 
     $db=dbconnect();
 
@@ -30,7 +15,11 @@
             $mbr= $res->fetch();
             $id = $mbr["id"];
 
+        }else{
+            header('Location: https://www.iteam-s.mg/qui-sommes-nous#Picture');
+            exit();
         }
+        
 
 
         /* Checking the about infos */

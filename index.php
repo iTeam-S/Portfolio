@@ -7,13 +7,14 @@
 
 	$params=explode('/',$_GET['u']);
 
+
 	require(ROOT.'controllers/Portfolio.php');
+
 
 	if ($params[0] !="") {
 
-		$portfolio=ucfirst($params[0]);
-		$action=isset($params[1])?$params[1]:'index';
-
+		$action=$params[0]?$params[0]:'index';
 		$id=$action;
-		
+	}else{
+		/*Data file manage the case*/
 	}
