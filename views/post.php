@@ -10,7 +10,7 @@
 	    <!-- Page title -->
 		<title><?= $fullname; ?></title>
 	    <!-- End -->
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/iteams.png" />
+		<link rel="shortcut icon" type="image/x-icon" href="../libs/img/iteams.png" />
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="./libs/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="./libs/css/et-lineicons.css">
@@ -73,7 +73,7 @@
                         </h4>
                         <?php 
                             if (!empty($cv))
-                                echo '<a href="./libs/cv/'.$cv.'" class="buton buton-null mt-30 default-button button-black"><span>Télécharger mon CV</span></a>';
+                                echo '<a href="'.$cv.'" class="buton buton-null mt-30 default-button button-black"><span>Télécharger mon CV</span></a>';
                             else 
                                 echo '<a href="#contact_menu" data-scroll-nav="5" class="buton buton-null mt-30 default-button button-black"><span>Me contacter</span></a>';
                         ?>
