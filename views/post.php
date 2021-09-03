@@ -47,11 +47,11 @@
                 <div id="navbarSupportedContent" class="main-navigation" data-width="1007">
                     <ul id="menu-main-menu" class="nav menu-nav clone-main-menu kunka-nav main-menu">
                         <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 16px;">Accueil</a></li>
-                        <li class="nav-item menu-item"> <a class="nav-link" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>  
-             	        <li class="nav-item menu-item"> <a class="nav-link" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>  
+             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
                     </ul>
                 </div>
             </nav>
@@ -87,10 +87,10 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="section-content wow slideInLeft">
-                        <h1>A propos de moi</h1>
+                        <h1 class="text-white">A propos de moi</h1>
                         <hr class="theme-style-left">
                         <div>
-                            <h6 style="color: #888;"><?= $description_pers; ?></h6>
+                            <h6 style="color: #888;" class="text-grey"><?= $description_pers; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
-                        <h4>Compétences</h4>
+                        <h4 class="text-white">Compétences</h4>
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up">
@@ -141,10 +141,10 @@
                         $liste_comp = $data3["liste"];
                 ?>
 
-                <div class="feat-item col-lg-4 col-md-6">
+                <div class="feat-item col-lg-4 col-md-6" style="background-color; black !important">
                     <div class="feat-inner"> <span class="icon <?= $data3["icone"]; ?>"></span>
                         <div class="feat-info">
-                            <h5><?= $nom_comp; ?></h5>
+                            <h5 class="text-white"><?= $nom_comp; ?></h5>
                             <h6><?= $liste_comp; ?></h6> </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4>Expérience</h4>
+						<h4 class="text-white">Expérience</h4>
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
@@ -174,15 +174,15 @@
 										<div class="icon"></div>
 										<div class="date-content">
 											<div class="date-outer">
-												<span class="date">
+												<span class="date" >
 													<span class="month"><?= $nom_exp; ?></span>
 													<span class="year"><?= $annee_exp; ?></span>
 												</span>
 											</div>
 										</div>
 										<div class="timeline-content">
-											<h3 class="title"><?= $type_exp; ?></h3>
-											<p class="description">
+											<h3 class="title text-white"><?= $type_exp; ?></h3>
+											<p class="description text-grey">
 												<?= $description_exp; ?>   
 											</p>
 										</div>
@@ -202,7 +202,7 @@
 			<div id="educations_menu" class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4>Formations et diplômes</h4>
+						<h4 class="text-white">Formations et diplômes</h4>
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
@@ -223,8 +223,8 @@
 									</div>
 								</div>
 								<div class="timeline-content">
-									<h3 class="title"><?= $type_form; ?></h3>
-									<p class="description">
+									<h3 class="title text-white"><?= $type_form; ?></h3>
+									<p class="description text-grey">
 										<?= $description_form; ?>
 									</p>
 								</div>
@@ -332,7 +332,7 @@
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
-                        <h4>Entrer en contact</h4>
+                        <h4 class="text-white">Entrer en contact</h4>
                     </div>
                     <div class="offset-md-1 col-md-10">
                         <div class="contact-info mb-md50">
@@ -340,22 +340,22 @@
                                 <div class="col-md-4 mb-50">
                                     <div class="item"> <span class="icon et-phone"></span>
                                         <div class="cont">
-                                            <p><?= $tel; ?></p>
-                                            <h6>Téléphone</h6> </div>
+                                            <p class="text-white"><?= $tel; ?></p>
+                                            <h6 class="text-grey">Téléphone</h6> </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-50">
                                     <div class="item"> <span class="icon et-envelope"></span>
                                         <div class="cont">
-                                            <p><a href="mailto:<?= $email; ?>"><?= $email; ?></a></p>
-                                            <h6>Email</h6> </div>
+                                            <p class="text-white"><a href="mailto:<?= $email; ?>"><?= $email; ?></a></p>
+                                            <h6 class="text-grey">Email</h6> </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="item"> <span class="icon et-map"></span>
                                         <div class="cont">
-                                            <p><?= $adresse; ?></p>
-                                            <h6>Adresse</h6> </div>
+                                            <p class="text-white"><?= $adresse; ?></p>
+                                            <h6 class="text-grey">Adresse</h6> </div>
                                     </div>
                                 </div>
                             </div>
@@ -382,7 +382,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-center">
-                                        <span class="buton buton-bg">Envoyer</span>
+                                        <span class="buton buton-bg" style="cursor:pointer !important">Envoyer</span>
                                     </div>
                                 </div>
                             </div>
@@ -410,7 +410,7 @@
                             <a href="https://linkedin.com/in<?= $linkedin; ?>"><i class="fa fa-linkedin"></i></a>
                         </div>
                         <!-- Copyright -->
-                        <p>Edition &copy; iTeam-$ Community <a href="#"></a></p>
+                        <p class="text-white">Edition &copy; iTeam-$ Community <a href="#"></a></p>
                     </div>
                 </div>
             </div>
