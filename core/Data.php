@@ -60,6 +60,7 @@
         $facebook = $membre_info["facebook"];
         $github = $membre_info["user_github"];
         $linkedin = $membre_info["linkedin"];
+        $dark_mode = $membre_info["dark"];
 
 
 ?>

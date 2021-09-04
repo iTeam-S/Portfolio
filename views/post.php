@@ -20,6 +20,9 @@
 		<link rel="stylesheet" href="./libs/css/owl.theme.default.min.css" />
 		<link rel="stylesheet" href="./libs/css/aos.css" />
 		<link rel="stylesheet" href="./libs/css/style.css" />
+        <?php 
+            if ( $dark_mode == 1 ) echo '<link rel="stylesheet" href="./libs/css/dark.css" />';
+        ?>
 	    <link rel="stylesheet" href="./libs/bootstrap/css/style.css">
 	    <link rel="stylesheet" type="text/css" href="./libs/css/pinegram.min.css">
 	    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
