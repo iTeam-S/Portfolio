@@ -54,7 +54,7 @@
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Distinction</a> </li>  
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="4" style="font-size: 16px;">Distinction</a> </li>  
              	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
                     </ul>
                 </div>
@@ -202,7 +202,7 @@
 		<!-- END TIMELINE -->
 
         <!-- START DISTINCTION -->
-		<section id="distinction" class="my-timeline section-padding" data-scroll-index="3">
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="3">
 			<div class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
@@ -212,18 +212,18 @@
 						<div class="main-timeline">
 							<div class="col-md-12">
 								<div class="main-timeline">
-                                <?php while ($data4 = $result4->fetch()): 
-                                        $nom_dist = $data4["nom"];
-                                        $annee_dist = $data4["annee"];
-                                        $type_dist = $data4["type"];
-                                        $description_dist = $data4["description"];
+                                <?php while ($data6 = $result6->fetch()): 
+                                        $lieu_dist = $data6["lieu"];
+                                        $annee_dist = $data6["annee"];
+                                        $type_dist = $data6["type"];
+                                        $description_dist = $data6["description"];
                                     ?>
 									<div class="timeline">
 										<div class="icon"></div>
 										<div class="date-content">
 											<div class="date-outer">
 												<span class="date" >
-                                                    <span class="month"><?= $nom_dist; ?></span>
+                                                    <span class="month"><?= $lieu_dist; ?></span>
 													<span class="year"><?= $annee_dist; ?></span>
 												</span>
 											</div>
