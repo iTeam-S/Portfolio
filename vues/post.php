@@ -200,6 +200,50 @@
 			</div><!--- END CONTAINER -->
 		</section>
 		<!-- END TIMELINE -->
+	    	
+	    	 <!-- START DISTINCTION -->
+		<section id="distinction" class="my-timeline section-padding" data-scroll-index="3">
+			<div class="container">
+				<div class="row">
+					<div class="section-head-green col-md-12">
+						<h4 class="text-white">Distinction</h4>
+					</div>
+					<div class="col-md-12">
+						<div class="main-timeline">
+							<div class="col-md-12">
+								<div class="main-timeline">
+                                <?php while ($data4 = $result4->fetch()): 
+                                        $nom_dist = $data4["nom"];
+                                        $annee_dist = $data4["annee"];
+                                        $type_dist = $data4["type"];
+                                        $description_dist = $data4["description"];
+                                    ?>
+									<div class="timeline">
+										<div class="icon"></div>
+										<div class="date-content">
+											<div class="date-outer">
+												<span class="date" >
+                                                    <span class="month"><?= $nom_dist; ?></span>
+													<span class="year"><?= $annee_dist; ?></span>
+												</span>
+											</div>
+										</div>
+										<div class="timeline-content">
+											<h3 class="title text-white"><?= $type_dist; ?></h3>
+											<p class="description text-grey">
+												<?= $description_dist; ?>   
+											</p>
+										</div>
+									</div>
+                                    <?php endwhile; ?>
+							</div> 
+							</div>
+						</div>
+					</div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END DISTINCTION -->
 
 		<!-- START EDUCATION -->
 		<section id="education" class="my-education section-padding" data-scroll-index="4">
