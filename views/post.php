@@ -206,7 +206,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4 class="text-white">Distinction</h4>
+						<h4 class="text-white">Prix et Distinction</h4>
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
