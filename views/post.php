@@ -54,7 +54,7 @@
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="6" style="font-size: 16px;">Distinction</a> </li>  
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="6" style="font-size: 16px;">Distinctions</a> </li>  
              	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
                     </ul>
                 </div>
