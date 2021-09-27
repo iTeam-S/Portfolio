@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf8mb4_general_ci">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	    <meta name="description" content="Page présentant le portfolio de chaque membre de l'association ITeams"/>
@@ -253,7 +253,7 @@
 							<div class="col-md-12">
 								<div class="main-timeline">
                                 <?php while ($data6 = $result6->fetch()): 
-                                        $lieu_dist = $data6["lieu"];
+                                        $lieu_dist = $data6["organisateur"];
                                         $annee_dist = $data6["annee"];
                                         $type_dist = $data6["type"];
                                         $description_dist = $data6["description"];
