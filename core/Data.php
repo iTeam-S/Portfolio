@@ -44,6 +44,11 @@
         $result5 = $db->prepare($sql5);
         $result5->execute(["id" => $id]);
 
+        /* Checking the distinction infos */
+        $sql6 = "SELECT * FROM distinctions WHERE id_membre = :id;";
+        $result6 = $db->prepare($sql6);
+        $result6->execute(["id" => $id]);
+
     /* Variables */
     
         $fullname = $membre_info["prenom"] . " " . $membre_info["nom"];

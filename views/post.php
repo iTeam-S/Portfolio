@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf8mb4_general_ci">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	    <meta name="description" content="Page présentant le portfolio de chaque membre de l'association ITeams"/>
@@ -51,10 +51,23 @@
                     <ul id="menu-main-menu" class="nav menu-nav clone-main-menu kunka-nav main-menu">
                         <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 16px;">Accueil</a></li>
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>  
-             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
+                        <?php
+                            $data = $result3 -> fetch();
+                            $data = $result4 -> fetch();
+                            $data = $result5 -> fetch();
+                            $data = $result6 -> fetch();
+                            if(!empty($data)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>';
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>';
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>';
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>';
+                                
+                            }else{
+                                echo " ";
+                            } 
+                        ?>
+                        <!-- <li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>   -->
+             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="6" style="font-size: 16px;">Contacts</a> </li>          
                     </ul>
                 </div>
             </nav>
@@ -135,7 +148,15 @@
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
-                        <h4 class="text-white">Compétences</h4>
+                    <?php
+                        $data = $result3 -> fetch();
+                        if(!empty($data)){
+                            echo '<h4 class="text-white">Compétences</h4>';
+                        }else{
+                            echo "";
+                        } 
+                    ?>
+                        
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up">
@@ -161,7 +182,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4 class="text-white">Expérience</h4>
+                    <?php
+                        $data = $result4 -> fetch();
+                        if(!empty($data)){
+                            echo '<h4 class="text-white">Expérience</h4>';
+                        }else{
+                            echo "";
+                        } 
+                    ?>
+						
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
@@ -205,7 +234,15 @@
 			<div id="educations_menu" class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4 class="text-white">Formations et diplômes</h4>
+                    <?php
+                        $data = $result5 -> fetch();
+                        if(!empty($data)){
+                            echo '<h4 class="text-white">Formations et diplômes</h4>';
+                        }else{
+                            echo "";
+                        } 
+                    ?>
+						
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
@@ -239,6 +276,59 @@
 			</div><!--- END CONTAINER -->
 		</section>
 		<!-- END EDUCATION -->
+
+           <!-- START DISTINCTION -->
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
+			<div class="container">
+				<div class="row">
+					<div class="section-head-green col-md-12">
+                        <?php
+                             $data = $result6 -> fetch();
+                             if(!empty($data)){
+                                 echo '<h4 class="text-white">Prix et Distinctions</h4>';
+                             }else{
+                                 echo "";
+                             } 
+                        ?>
+						
+					</div>
+					<div class="col-md-12">
+						<div class="main-timeline">
+							<div class="col-md-12">
+								<div class="main-timeline">
+                                    <?php
+                                        while ($data6 = $result6->fetch()): 
+                                        $lieu_dist = $data6["organisateur"];
+                                        $annee_dist = $data6["annee"];
+                                        $type_dist = $data6["type"];
+                                        $description_dist = $data6["description"];
+                                    ?>
+									<div class="timeline">
+										<div class="icon"></div>
+										<div class="date-content">
+											<div class="date-outer">
+												<span class="date" >
+                                                    <span class="month"><?= $lieu_dist; ?></span>
+													<span class="year"><?= $annee_dist; ?></span>
+												</span>
+											</div>
+										</div>
+										<div class="timeline-content">
+											<h3 class="title text-white"><?= $type_dist; ?></h3>
+											<p class="description text-grey">
+												<?= $description_dist; ?>   
+											</p>
+										</div>
+									</div>
+                                    <?php endwhile; ?>
+							</div> 
+							</div>
+						</div>
+					</div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END DISTINCTION -->
 
     <!-- PROJECTS SECTION -->
         <!--
@@ -331,7 +421,7 @@
 <!-- END OF PROJECT -->
 
         <!-- Contact -->
-        <section id="contact_menu" class="contact section-padding" data-scroll-index="5">
+        <section id="contact_menu" class="contact section-padding" data-scroll-index="6">
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
