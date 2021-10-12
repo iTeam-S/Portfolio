@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="./libs/css/owl.theme.default.min.css" />
 		<link rel="stylesheet" href="./libs/css/aos.css" />
 		<link rel="stylesheet" href="./libs/css/style.css" />
-        <?php 
+        <?php
             if ( $dark_mode == 1 ) echo '<link rel="stylesheet" href="./libs/css/dark.css" />';
         ?>
 	    <link rel="stylesheet" href="./libs/bootstrap/css/style.css">
@@ -35,7 +35,7 @@
 		<a href="javascript:void(0);" class="close-menu"></a>
 		<div class="box-inner"></div>
 	</div>
-    
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" id="header">
         <div class="container">
@@ -52,22 +52,30 @@
                         <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 16px;">Accueil</a></li>
                         <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
                         <?php
-                            $data = $result3 -> fetch();
-                            $data = $result4 -> fetch();
-                            $data = $result5 -> fetch();
-                            $data = $result6 -> fetch();
-                            if(!empty($data)){
+                            $skills=$result3->fetchAll();
+                            $experiences=$result4->fetchAll();
+                            $educations=$result5->fetchAll();
+                            $distinctions=$result6->fetchAll();
+                            if(!empty($skills)){
                                 echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>';
+                            }
+                            if(!empty($experiences)){
                                 echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>';
+                            }
+                            if(!empty($educations)){
                                 echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>';
-                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>';
-                                
-                            }else{
-                                echo " ";
-                            } 
+
+
+                            }
+                            if(!empty($distinctions)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>'; 
+
+                            }
+                            
+                            
                         ?>
                         <!-- <li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>   -->
-             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="6" style="font-size: 16px;">Contacts</a> </li>          
+             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="6" style="font-size: 16px;">Contacts</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -87,10 +95,10 @@
                             <span class="typewrite" data-period="2000" data-type='<?= json_encode($fonction_pers); ?>'>
                             <span class="wrap"></span></span></span>
                         </h4>
-                        <?php 
+                        <?php
                             if (!empty($cv))
                                 echo '<a href="'.$cv.'" class="buton buton-null mt-30 default-button button-black"><span>Télécharger mon CV</span></a>';
-                            else 
+                            else
                                 echo '<a href="#contact_menu" data-scroll-nav="5" class="buton buton-null mt-30 default-button button-black"><span>Me contacter</span></a>';
                         ?>
                     </div>
@@ -149,30 +157,23 @@
                 <div class="row">
                     <div class="section-head-green col-md-12">
                     <?php
-                        $data = $result3 -> fetch();
-                        if(!empty($data)){
+                        if (count($skills) != 0) {
                             echo '<h4 class="text-white">Compétences</h4>';
-                        }else{
-                            echo "";
-                        } 
+                        }
                     ?>
-                        
+
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up">
-                <?php while ($data3 = $result3->fetch()): 
-                        $nom_comp = $data3["nom"];
-                        $liste_comp = $data3["liste"];
-                ?>
-
+                <?php foreach ($skills as $value3) { ?>
                 <div class="feat-item col-lg-4 col-md-6" style="background-color; black !important">
-                    <div class="feat-inner"> <span class="icon <?= $data3["icone"]; ?>"></span>
+                    <div class="feat-inner"> <span class="icon <?= $value3["icone"]; ?>"></span>
                         <div class="feat-info">
-                            <h5 class="text-white"><?= $nom_comp; ?></h5>
-                            <h6><?= $liste_comp; ?></h6> </div>
+                            <h5 class="text-white"><?= $value3["nom"]; ?></h5>
+                            <h6><?= $value3["liste"]; ?></h6> </div>
                     </div>
                 </div>
-                <?php endwhile; ?>
+                <?php }  ?>
                 </div>
             </div>
         </div>
@@ -183,44 +184,37 @@
 				<div class="row">
 					<div class="section-head-green col-md-12">
                     <?php
-                        $data = $result4 -> fetch();
-                        if(!empty($data)){
+                       
+                        if (count($experiences) != 0) {
                             echo '<h4 class="text-white">Expérience</h4>';
-                        }else{
-                            echo "";
-                        } 
+                        }
                     ?>
-						
+
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
 							<div class="col-md-12">
 								<div class="main-timeline">
-                                    <?php while ($data4 = $result4->fetch()): 
-                                        $nom_exp = $data4["nom"];
-                                        $annee_exp = $data4["annee"];
-                                        $type_exp = $data4["type"];
-                                        $description_exp = $data4["description"];
-                                    ?>
+                                    <?php foreach ($experiences as $value4) { ?>
 									<div class="timeline">
 										<div class="icon"></div>
 										<div class="date-content">
 											<div class="date-outer">
 												<span class="date" >
-													<span class="month"><?= $nom_exp; ?></span>
-													<span class="year"><?= $annee_exp; ?></span>
+													<span class="month"><?= $value4["nom"]; ?></span>
+													<span class="year"><?= $value4["annee"]; ?></span>
 												</span>
 											</div>
 										</div>
 										<div class="timeline-content">
-											<h3 class="title text-white"><?= $type_exp; ?></h3>
+											<h3 class="title text-white"><?= $value4["type"]; ?></h3>
 											<p class="description text-grey">
-												<?= $description_exp; ?>   
+												<?= $value4["description"]; ?>
 											</p>
 										</div>
 									</div>
-                                    <?php endwhile; ?>
-							</div> 
+                                <?php }  ?>
+							</div>
 							</div>
 						</div>
 					</div><!--- END COL -->
@@ -235,41 +229,34 @@
 				<div class="row">
 					<div class="section-head-green col-md-12">
                     <?php
-                        $data = $result5 -> fetch();
-                        if(!empty($data)){
-                            echo '<h4 class="text-white">Formations et diplômes</h4>';
-                        }else{
-                            echo "";
-                        } 
+                         
+                         if (count($educations) != 0) {
+                             echo '<h4 class="text-white">Formations et diplômes</h4>';
+                         }
                     ?>
-						
+
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
-                             <?php while ($data5 = $result5->fetch()): 
-                                $lieu_form = $data5["lieu"];
-                                $annee_form = $data5["annee"];
-                                $type_form = $data5["type"];
-                                $description_form = $data5["description"];
-                            ?>
+                             <?php foreach ($educations as $value5) { ?>
 							<div class="timeline">
 								<div class="icon"></div>
 								<div class="date-content">
 									<div class="date-outer">
 										<span class="date">
-											<span class="month"><?= $lieu_form; ?></span>
-											<span class="year"><?= $annee_form; ?></span>
+											<span class="month"><?= $value5["lieu"]; ?></span>
+											<span class="year"><?= $value5["annee"]; ?></span>
 										</span>
 									</div>
 								</div>
 								<div class="timeline-content">
-									<h3 class="title text-white"><?= $type_form; ?></h3>
+									<h3 class="title text-white"><?= $value5["type"]; ?></h3>
 									<p class="description text-grey">
-										<?= $description_form; ?>
+										<?= $value5["description"]; ?>
 									</p>
 								</div>
 							</div>
-                            <?php endwhile; ?>
+                            <?php }  ?>
 						</div>
 					</div><!--- END COL -->
 				</div><!--- END ROW -->
@@ -283,45 +270,38 @@
 				<div class="row">
 					<div class="section-head-green col-md-12">
                         <?php
-                             $data = $result6 -> fetch();
-                             if(!empty($data)){
+                             
+                             if (count($distinctions) != 0) {
                                  echo '<h4 class="text-white">Prix et Distinctions</h4>';
-                             }else{
-                                 echo "";
-                             } 
+                             }
                         ?>
-						
+
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
 							<div class="col-md-12">
 								<div class="main-timeline">
                                     <?php
-                                        while ($data6 = $result6->fetch()): 
-                                        $lieu_dist = $data6["organisateur"];
-                                        $annee_dist = $data6["annee"];
-                                        $type_dist = $data6["type"];
-                                        $description_dist = $data6["description"];
-                                    ?>
+                                        foreach ($distinctions as $value6) { ?>
 									<div class="timeline">
 										<div class="icon"></div>
 										<div class="date-content">
 											<div class="date-outer">
 												<span class="date" >
-                                                    <span class="month"><?= $lieu_dist; ?></span>
-													<span class="year"><?= $annee_dist; ?></span>
+                                                    <span class="month"><?= $value6["organisateur"]; ?></span>
+													<span class="year"><?= $value6["annee"]; ?></span>
 												</span>
 											</div>
 										</div>
 										<div class="timeline-content">
-											<h3 class="title text-white"><?= $type_dist; ?></h3>
+											<h3 class="title text-white"><?= $value6["type"]; ?></h3>
 											<p class="description text-grey">
-												<?= $description_dist; ?>   
+												<?= $value6["description"]; ?>
 											</p>
 										</div>
 									</div>
-                                    <?php endwhile; ?>
-							</div> 
+                                    <?php }  ?>
+							</div>
 							</div>
 						</div>
 					</div><!--- END COL -->
@@ -495,7 +475,7 @@
                         <!-- Footer Logo -->
                         <div class="footer-logo">
                             <img style="width: 3% !important" src="../libs/img/iteams.png" class="logo-img" alt="">
-                        </div> 
+                        </div>
                         <!-- Social Media -->
                         <div class="social">
                             <a href="https://facebook.com<?= $facebook; ?>"><i class="fa fa-facebook-f"></i></a>
@@ -510,11 +490,11 @@
         </footer>
     </div>
 
-    <?php 
-        $result1->closeCursor(); 
-        $result3->closeCursor(); 
-        $result4->closeCursor(); 
-        $result5->closeCursor(); 
+    <?php
+        $result1->closeCursor();
+        $result3->closeCursor();
+        $result4->closeCursor();
+        $result5->closeCursor();
     ?>
 
     <!-- jQuery -->
