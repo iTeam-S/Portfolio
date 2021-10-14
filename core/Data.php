@@ -16,7 +16,7 @@
             $id = $mbr["id"];
 
         }else{
-            header('Location: https://www.iteam-s.mg/qui-sommes-nous#Picture');
+            header('Location: https://www.iteam-s.mg/view/membre.html#team');
             exit();
         }
         
