@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
-		<meta charset="utf8mb4_general_ci">
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	    <meta name="description" content="Page présentant le portfolio de <?= $fullname; ?> membre de l'association iTeam-$"/>
@@ -124,7 +124,7 @@
                             <img src="<?= $photo_pers; ?>"  alt="">
                         </div>
                         <div class="detailed-profile">
-                            <span class="name" style="world-wrap: break-word !important; "><?= $fullname; ?></span>
+                            <span class="name"><?= $fullname; ?></span>
                             <div class="phone">
                                 <span class="ti-mobile"></span>&nbsp; <?= $tel; ?>
                             </div>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="row" data-aos="fade-up">
                 <?php foreach ($skills as $value3) { ?>
-                <div class="feat-item col-lg-4 col-md-6" style="background-color; black !important">
+                <div class="feat-item col-lg-4 col-md-6">
                     <div class="feat-inner"> <span class="icon <?= $value3["icone"]; ?>"></span>
                         <div class="feat-info">
                             <h5 class="text-white"><?= $value3["nom"]; ?></h5>
