@@ -4,7 +4,7 @@
 		<meta charset="utf8mb4_general_ci">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	    <meta name="description" content="Page présentant le portfolio de chaque membre de l'association ITeams"/>
+	    <meta name="description" content="Page présentant le portfolio de <?= $fullname; ?> membre de l'association iTeam-$"/>
 	    <meta name="author" content="Gaetan Jonathan"/>
 	    <meta name="keywords" content="portfolio, membres, iteams, association, jeunes"/>
 	    <!-- Page title -->
