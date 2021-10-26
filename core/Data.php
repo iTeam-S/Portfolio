@@ -30,22 +30,22 @@
             $membre_info = $result1->fetch();        
 
         /* Checking the skills infos */
-        $sql3 = "SELECT competences.*, categorie_competence.* FROM competences, categorie_competence WHERE id_membre = :id AND competences.id_categorie = categorie_competence.id;";
+        $sql3 = "SELECT competences.*, categorie_competence.* FROM competences, categorie_competence WHERE id_membre = :id AND competences.id_categorie = categorie_competence.id ORDER BY ordre DESC;";
         $result3 = $db->prepare($sql3);
         $result3->execute(["id" => $id]);
         
         /* Checking the experiences infos */
-        $sql4 = "SELECT * FROM experiences WHERE id_membre = :id;";
+        $sql4 = "SELECT * FROM experiences WHERE id_membre = :id ORDER BY ordre DESC ;";
         $result4 = $db->prepare($sql4);
         $result4->execute(["id" => $id]);
         
         /* Checking the formations infos */
-        $sql5 = "SELECT * FROM formations WHERE id_membre = :id;";
+        $sql5 = "SELECT * FROM formations WHERE id_membre = :id ORDER BY ordre DESC;";
         $result5 = $db->prepare($sql5);
         $result5->execute(["id" => $id]);
 
         /* Checking the distinction infos */
-        $sql6 = "SELECT * FROM distinctions WHERE id_membre = :id;";
+        $sql6 = "SELECT * FROM distinctions WHERE id_membre = :id ORDER BY ordre DESC;";
         $result6 = $db->prepare($sql6);
         $result6->execute(["id" => $id]);
 
