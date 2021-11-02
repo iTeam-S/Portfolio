@@ -49,33 +49,33 @@
                 <div class="main-menu-wrapper"></div>
                 <div id="navbarSupportedContent" class="main-navigation" data-width="1007">
                     <ul id="menu-main-menu" class="nav menu-nav clone-main-menu kunka-nav main-menu">
-                        <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 16px;">Accueil</a></li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
+                        <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 14px;">Accueil</a></li>
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 14px;">A propos</a> </li>
                         <?php
                             $skills=$result3->fetchAll();
                             $experiences=$result4->fetchAll();
                             $educations=$result5->fetchAll();
                             $distinctions=$result6->fetchAll();
                             if(!empty($skills)){
-                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>';
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 14px;">Compétences</a> </li>';
                             }
                             if(!empty($experiences)){
-                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>';
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 14px;">Expériences</a> </li>';
                             }
                             if(!empty($educations)){
-                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>';
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 14px;">Formations</a> </li>';
 
 
                             }
                             if(!empty($distinctions)){
-                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>'; 
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 14px;">Prix et distinctions</a> </li>'; 
 
                             }
                             
                             
                         ?>
-                        <!-- <li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 16px;">Prix et distinctions</a> </li>   -->
-             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="6" style="font-size: 16px;">Contacts</a> </li>
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#projets" data-scroll-nav="6" style="font-size: 14px;">Projets</a> </li>
+             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="7" style="font-size: 14px;">Contact</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -186,7 +186,7 @@
                     <?php
                        
                         if (count($experiences) != 0) {
-                            echo '<h4 class="text-white">Expérience</h4>';
+                            echo '<h4 class="text-white">Expériences</h4>';
                         }
                     ?>
 
@@ -264,13 +264,13 @@
 		</section>
 		<!-- END EDUCATION -->
 
-           <!-- START DISTINCTION -->
+
+        <!-- START DISTINCTION -->
 		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
 			<div class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
                         <?php
-                             
                              if (count($distinctions) != 0) {
                                  echo '<h4 class="text-white">Prix et Distinctions</h4>';
                              }
@@ -310,97 +310,103 @@
 		</section>
 		<!-- END DISTINCTION -->
 
-    <!-- PROJECTS SECTION -->
-        <!--
-		<section class="works section-padding" data-scroll-index="4">
-		<div class="container">
-			<div class="row">
-			<div class="section-head-green col-md-12">
-				<h4>Projets réalisés et en cours</h4>
-			</div>
-			</div>
-			<div class="row">
-			<div class="filtering text-center mb-30 col-sm-12">
-				<div class="filter"> <span data-filter='*' class="active">Tous</span> <span data-filter='.brand'>Web</span> <span data-filter='.web'>Applications Desktop</span> <span data-filter='.graphic'>Application mobile</span> </div>
-			</div>
 
-	<div class="clearfix"></div>
-			<div class="gallery full-width">
-				<div class="isotope-sizer"></div>
-				<div class="col-lg-4 col-md-6 items graphic">
-				<div class="item-img"> <img src="assets/img/portfolio/1.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Graphic</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/1.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
+        <!-- START project -->
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
+			<div class="container">
+				<div class="row">
+					<div class="section-head-green col-md-12">
+                        <h4 class="text-white">Projets realisés</h4>
 					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items web">
-				<div class="item-img"> <img src="assets/img/portfolio/2.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Design</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/2.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items brand">
-				<div class="item-img"> <img src="assets/img/portfolio/3.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Branding</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/3.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items graphic">
-				<div class="item-img"> <img src="assets/img/portfolio/4.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Graphic</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/4.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items web">
-				<div class="item-img"> <img src="assets/img/portfolio/5.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Design</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/5.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items brand">
-				<div class="item-img"> <img src="assets/img/portfolio/6.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Branding</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/6.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-    -->
-<!-- END OF PROJECT -->
+					<div class="col-md-12">
 
-        <!-- Contact -->
+                        <center>
+                            <div class="mySlides fade">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="../libs/img/vakoka.png" alt="Avatar" >
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h2 class="project-name">Buildeo</h2> 
+                                            <center>
+                                                <p class="project-p">Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.</p> 
+                                            </center>
+                                            <center>
+                                                <p class="p-button">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+
+                        <center>
+                            <div class="mySlides fade">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="../libs/img/vakoka.png" alt="Avatar" >
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h2 class="project-name">Buildeo</h2> 
+                                            <center>
+                                                <p class="project-p" onclick="window.location.href='https://github.com/iTeam-S/Buildeo'">Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.</p> 
+                                            </center>
+                                            <center>
+                                                <p class="p-button" onclick="window.location.href='https://github.com/iTeam-S/Buildeo'">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+
+                        <center>
+                            <div class="mySlides fade">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="../libs/img/vakoka.png" alt="Avatar" >
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h2 class="project-name">Buildeo</h2> 
+                                            <center>
+                                                <p class="project-p">Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.</p> 
+                                            </center>
+                                            <center>
+                                                <p class="p-button" onclick="window.location.href='https://github.com/iTeam-S/Buildeo'">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                        <br>
+
+                        <!-- The dots/circles -->
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+
+					</div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END project -->
+
+        <center>
+            <iframe height="402px" width="970px" style="border:none !important" src="https://cr-ss-service.azurewebsites.net/api/ScreenShot?widget=summary&username=gaetan1903&style=--bg-color%3Atransparent%3B--border-radius%3A4px%3B--label-text-color%3A%008080&branding=false" ></iframe>
+        </center>
+
+        <!-- Contactactive -->
         <section id="contact_menu" class="contact section-padding" data-scroll-index="6">
             <div class="container">
                 <div class="row">
@@ -443,7 +449,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input id="form_email" type="email" name="email" placeholder="Email" required="required"> </div>
+                                        active                        <input id="form_email" type="email" name="email" placeholder="Email" required="required"> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -513,5 +519,37 @@
     <script src="./libs/js/autotype.js"></script>
     <script src='./libs/js/aos.js'></script>
     <script src="./libs/js/scripts.js"></script>
+
+    
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace("dot-active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " dot-active";
+        }
+    </script>
+
+
 </body>
 </html>
