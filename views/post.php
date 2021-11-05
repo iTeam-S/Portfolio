@@ -56,6 +56,7 @@
                             $experiences=$result4->fetchAll();
                             $educations=$result5->fetchAll();
                             $distinctions=$result6->fetchAll();
+                            $projets=$result7->fetchAll();
                             if(!empty($skills)){
                                 echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 14px;">Compétences</a> </li>';
                             }
@@ -71,10 +72,12 @@
                                 echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 14px;">Prix et distinctions</a> </li>'; 
 
                             }
+                            if(!empty($projets)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#projets" data-scroll-nav="6" style="font-size: 14px;">Projets</a> </li>';
+                            }
                             
                             
                         ?>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#projets" data-scroll-nav="6" style="font-size: 14px;">Projets</a> </li>
              	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="7" style="font-size: 14px;">Contact</a> </li>
                     </ul>
                 </div>
@@ -268,6 +271,7 @@
         <!-- START DISTINCTION -->
 		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
 			<div class="container">
+        
 				<div class="row">
 					<div class="section-head-green col-md-12">
                         <?php
@@ -312,77 +316,41 @@
 
 
         <!-- START project -->
-		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="6">
 			<div class="container">
+                <?php echo $projets ?>
 				<div class="row">
-					<div class="section-head-green col-md-12">
-                        <h4 class="text-white">Projets realisés</h4>
+                    <div class="section-head-green col-md-12">
+                        <?php
+                             if (count($projets) != 0) {
+                                 echo '<h4 class="text-white">Projets realisés</h4>';
+                             }
+                        ?>
+
 					</div>
 					<div class="col-md-12">
-
-                        <center>
-                            <div class="mySlides fade">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <img src="../libs/img/vakoka.png" alt="Avatar" >
+                            <center>
+                            <?php foreach ($projets as $value7) { ?>
+                                <div class="mySlides fade">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="<?php echo $value7["pdc"]?>" alt="Avatar">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h2 class="project-name"><?= $value7["nom"]?></h2> 
+                                                <center>
+                                                    <p class="project-p"><?= $value7["description"]?></p> 
+                                                </center>
+                                                <center>
+                                                <p class="p-button" onclick="<?php echo "window.location.href = '".$value7["repos"]."'";?>">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
+                                                </center>
+                                            </div>
                                         </div>
-                                        <div class="flip-card-back">
-                                            <h2 class="project-name">Buildeo</h2> 
-                                            <center>
-                                                <p class="project-p">Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.</p> 
-                                            </center>
-                                            <center>
-                                                <p class="p-button">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
-                                            </center>
-                                        </div>
-                                    </div>
+                                    </div> 
                                 </div>
-                            </div>
+                        <?php }  ?>
                         </center>
-
-                        <center>
-                            <div class="mySlides fade">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <img src="../libs/img/vakoka.png" alt="Avatar" >
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <h2 class="project-name">Buildeo</h2> 
-                                            <center>
-                                                <p class="project-p" onclick="window.location.href='https://github.com/iTeam-S/Buildeo'">Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.</p> 
-                                            </center>
-                                            <center>
-                                                <p class="p-button" onclick="window.location.href='https://github.com/iTeam-S/Buildeo'">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
-                                            </center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </center>
-
-                        <center>
-                            <div class="mySlides fade">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <img src="../libs/img/vakoka.png" alt="Avatar" >
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <h2 class="project-name">Buildeo</h2> 
-                                            <center>
-                                                <p class="project-p">Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.</p> 
-                                            </center>
-                                            <center>
-                                                <p class="p-button" onclick="window.location.href='https://github.com/iTeam-S/Buildeo'">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
-                                            </center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </center>
-
                         <!-- Next and previous buttons -->
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -391,11 +359,13 @@
 
                         <!-- The dots/circles -->
                         <div style="text-align:center">
-                            <span class="dot" onclick="currentSlide(1)"></span>
-                            <span class="dot" onclick="currentSlide(2)"></span>
-                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <?php
+                                for($i=0;$i<sizeof($projets);$i++){
+                                echo "<span class=\"dot\" onclick=\"currentSlide (".($i+1).")\"></span>";   
+                                }
+                            ?>
                         </div>
-
+                           
 					</div><!--- END COL -->
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
@@ -407,7 +377,7 @@
         </center>
 
         <!-- Contactactive -->
-        <section id="contact_menu" class="contact section-padding" data-scroll-index="6">
+        <section id="contact_menu" class="contact section-padding" data-scroll-index="7">
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
