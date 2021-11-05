@@ -318,7 +318,6 @@
         <!-- START project -->
 		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="6">
 			<div class="container">
-                <?php echo $projets ?>
 				<div class="row">
                     <div class="section-head-green col-md-12">
                         <?php
