@@ -15,9 +15,6 @@
             $mbr= $res->fetch();
             $id = $mbr["id"];
 
-        }else{
-            header('Location: https://www.iteam-s.mg/view/membre.html#team');
-            exit();
         }
         
 
@@ -48,6 +45,11 @@
         $sql6 = "SELECT * FROM distinctions WHERE id_membre = :id ORDER BY ordre DESC;";
         $result6 = $db->prepare($sql6);
         $result6->execute(["id" => $id]);
+        /*Checking projets*/
+        $sql7= "SELECT * FROM projets WHERE id_membre = :id ORDER BY ordre DESC;";
+        $result7 = $db->prepare($sql7);
+        $result7->execute(["id" => $id]);
+
 
     /* Variables */
     
