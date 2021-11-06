@@ -20,6 +20,8 @@
 		<link rel="stylesheet" href="./libs/css/owl.theme.default.min.css" />
 		<link rel="stylesheet" href="./libs/css/aos.css" />
 		<link rel="stylesheet" href="./libs/css/style.css" />
+        <link rel="stylesheet" href="./libs/css/wdcss.css" />
+        
         <?php
             if ( $dark_mode == 1 ) echo '<link rel="stylesheet" href="./libs/css/dark.css" />';
         ?>
@@ -57,6 +59,7 @@
                             $educations=$result5->fetchAll();
                             $distinctions=$result6->fetchAll();
                             $projets=$result7->fetchAll();
+                            $widget=$result8->fetchAll();
                             if(!empty($skills)){
                                 echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 14px;">Compétences</a> </li>';
                             }
@@ -370,11 +373,20 @@
 			</div><!--- END CONTAINER -->
 		</section>
 		<!-- END project -->
-
-        <center>
-            <iframe height="402px" width="970px" style="border:none !important" src="https://cr-ss-service.azurewebsites.net/api/ScreenShot?widget=summary&username=gaetan1903&style=--bg-color%3Atransparent%3B--border-radius%3A4px%3B--label-text-color%3A%008080&branding=false" ></iframe>
-        </center>
-
+        <?php
+            echo $widget['lien'];
+        ?>
+        <?php foreach ($widget as $value8) { ?>
+            <center>
+                <figure class="wid">
+                    <img src="<?php echo $value8["lien"]?>" alt="widget" />
+                    <figcaption>
+                        <h3><?php echo $value8['nom']?></h3>
+                    </figcaption>
+                    <a href="#"></a>
+                </figure>
+            </center>
+        <?php }  ?>
         <!-- Contactactive -->
         <section id="contact_menu" class="contact section-padding" data-scroll-index="7">
             <div class="container">
@@ -487,6 +499,7 @@
     <script src="./libs/js/particles.min.js"></script>
     <script src="./libs/js/autotype.js"></script>
     <script src='./libs/js/aos.js'></script>
+    <script src='./libs/js/wscript.js'></script>
     <script src="./libs/js/scripts.js"></script>
     <script src="./libs/js/proj.js"></script>
 
