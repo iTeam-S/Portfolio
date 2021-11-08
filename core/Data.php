@@ -50,6 +50,11 @@
         $result7 = $db->prepare($sql7);
         $result7->execute(["id" => $id]);
 
+         /*Checking widget*/
+         $sql8= "SELECT * FROM autres WHERE id_membre = :id;";
+         $result8 = $db->prepare($sql8);
+         $result8->execute(["id" => $id]);
+
 
     /* Variables */
     
