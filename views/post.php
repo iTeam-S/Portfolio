@@ -345,7 +345,19 @@
                                                     <p class="project-p"><?= $value7["description"]?></p> 
                                                 </center>
                                                 <center>
-                                                <p class="p-button" onclick="<?php echo "window.location.href = '".$value7["repos"]."'";?>">Voir sur github <i class="fa fa-github" style="font-size: 18px !important"></i></p>
+                                                    <?php
+                                                    $lien=$value7['lien'];
+                                                    $patt="/github/i";
+                                                    if(preg_match($patt,$lien)){
+                                                     echo <<<LIEN
+                                                        <p class="p-button" onclick="window.location.href = '{$value7["lien"]}'">Voir sur github <i class= "fa fa-github" style="font-size: 18px !important"></i></p>
+                                                    LIEN;
+                                                    }else{
+                                                        echo <<<LIEN
+                                                            <p class="p-button" onclick="window.location.href = '{$value7["lien"]}'">Voir le projet <i class= "fa fa-tasks" style="font-size: 18px !important"></i></p>
+                                                        LIEN;
+                                                    }
+                                                    ?>
                                                 </center>
                                             </div>
                                         </div>
@@ -373,17 +385,13 @@
 			</div><!--- END CONTAINER -->
 		</section>
 		<!-- END project -->
-        <?php
-            echo $widget['lien'];
-        ?>
         <?php foreach ($widget as $value8) { ?>
             <center>
                 <figure class="wid">
                     <img src="<?php echo $value8["lien"]?>" alt="widget" />
                     <figcaption>
-                        <h3><?php echo $value8['nom']?></h3>
+                        <h3 id="tit_wid" onclick="<?php echo "window.location.href = '".$value8["lien"]."'";?>"><?php echo $value8['nom']?></h3>
                     </figcaption>
-                    <a href="#"></a>
                 </figure>
             </center>
         <?php }  ?>
