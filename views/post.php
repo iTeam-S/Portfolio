@@ -319,7 +319,7 @@
 
 
         <!-- START project -->
-		<section id="projets" class="my-timeline section-padding" data-scroll-index="6">
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="6">
 			<div class="container">
 				<div class="row">
                     <div class="section-head-green col-md-12">
@@ -366,8 +366,16 @@
                         <?php }  ?>
                         </center>
                         <!-- Next and previous buttons -->
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        <?php
+                             if (count($projets) != 0) {
+                                 echo <<<BUTTON
+                                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>';
+                                BUTTON;
+                             }
+                        ?>
+
+                        
 
                         <br>
 
@@ -416,7 +424,8 @@
                                     <div class="item"> <span class="icon et-envelope"></span>
                                         <div class="cont">
                                             <p class="text-white"><a href="mailto:<?= $email; ?>"><?= $email; ?></a></p>
-                                            <h6 class="text-grey">Email</h6> </div>
+                                            <h6 class="text-grey">Email</h6> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -438,7 +447,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        active                        <input id="form_email" type="email" name="email" placeholder="Email" required="required"> </div>
+                                       <input id="form_email" type="email" name="email" placeholder="Email" required="required"> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
