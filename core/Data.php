@@ -74,5 +74,13 @@
         $linkedin = $membre_info["linkedin"];
         $dark_mode = $membre_info["dark"];
 
+        /* mailing */
+        $mail_username = "";
+        $mail_password = "";
+        $client_email  = $_POST['email']   ?? NULL;
+        $client_name   = $_POST['name']    ?? NULL;
+        $subject       = $_POST['subject'] ?? NULL;
+        $message       = $_POST['message'] ?? NULL;
+
 
 ?>

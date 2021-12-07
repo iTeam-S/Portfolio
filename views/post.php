@@ -443,15 +443,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input id="form_name" type="text" name="name" placeholder="Nom" required="required"> </div>
+                                            <input id="form_name" type="text" name="name" placeholder="Nom" required="required" autocomplete="off"> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                       <input id="form_email" type="email" name="email" placeholder="Email" required="required"> </div>
+                                       <input id="form_email" type="email" name="email" placeholder="Email" required="required" autocomplete="off"> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="form_subject" type="text" name="subject" placeholder="Objet"> </div>
+                                            <input id="form_subject" type="text" name="subject" placeholder="Objet" autocomplete="off"> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -459,10 +459,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-center">
-                                        <span class="buton buton-bg" style="cursor:pointer !important">Envoyer</span>
+                                        <button type="submit" class="buton buton-bg" style="width: 125px; cursor:pointer !important" autocomplete="none">Envoyer</button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="loader" style="display:none;">
+                                <div class="loader-center">
+                                    <img src="./libs/img/loader.gif" alt="chargement en cours"/>
+                                </div>
+                            <div>
                         </form>
                     </div>
                 </div>
