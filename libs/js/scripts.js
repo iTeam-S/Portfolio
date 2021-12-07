@@ -369,10 +369,6 @@ $(window).on("load", function () {
                 , data: $(this).serialize()
                 ,complete: function(XHR, status) {
                     responseText = jQuery(XHR.responseText).text().replace(/\s+/, "")
-                    console.log(responseText);
-
-                    console.log(responseText.indexOf("Mail could not be sent"))
-
                     if(responseText.indexOf("Mail could not be sent") != -1 ){
                         pop_up_text = "Une erreur s'est produite. Veuillez réesayer"
                     }
