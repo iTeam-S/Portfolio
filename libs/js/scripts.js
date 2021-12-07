@@ -357,7 +357,6 @@ $(window).on("load", function () {
     $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
             $('.loader').show()
-            $('body').css("overflow", "hidden")
             var url = window.location.hre
             var alertBox
             var responseText
@@ -382,7 +381,6 @@ $(window).on("load", function () {
                     $('#contact-form').find('.messages').html(alertBox);
                     $('#contact-form')[0].reset();
                     $('.loader').hide()
-                    $('body').css("overflow", "auto")
                     setTimeout(function(){
                         $('.alert').remove();
 
