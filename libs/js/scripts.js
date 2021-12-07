@@ -358,21 +358,35 @@ $(window).on("load", function () {
         if (!e.isDefaultPrevented()) {
             $('.loader').show()
             $('body').css("overflow", "hidden")
-            var url = window.location.href;
+            var url = window.location.hre
+            var alertBox
+            var responseText
+            var pop_up_text = "Message envoyé"
+            var delay = 5000
+
             $.ajax({
                 type: "POST"
                 , url: url
                 , data: $(this).serialize()
-                , success: function() {
-                    var alertBox = '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Message envoyé</div>';
+                ,complete: function(XHR, status) {
+                    responseText = jQuery(XHR.responseText).text().replace(/\s+/, "")
+                    console.log(responseText);
+
+                    console.log(responseText.indexOf("Mail could not be sent"))
+
+                    if(responseText.indexOf("Mail could not be sent") != -1 ){
+                        pop_up_text = "Une erreur s'est produite. Veuillez réesayer"
+                    }
+
+                    alertBox = '<div class="alert alert-dismissable"><button ty>
                     $('#contact-form').find('.messages').html(alertBox);
                     $('#contact-form')[0].reset();
                     $('.loader').hide()
                     $('body').css("overflow", "auto")
                     setTimeout(function(){
                         $('.alert').remove();
-                      }, 3000);
 
+                    }, delay);
                 }
             });
             return false;
