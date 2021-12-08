@@ -15,10 +15,11 @@
             $mbr= $res->fetch();
             $id = $mbr["id"];
 
+        } else {
+               // redirect to member list if not set
+               header('Location: https://iteam-s.mg/view/membre.html');
         }
         
-
-
         /* Checking the about infos */
 
             $sql1 = "SELECT * FROM membre WHERE id = :id AND actif = 1;";
