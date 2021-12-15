@@ -24,3 +24,17 @@ Vous pouvez consulter depuis le bouton sur chaque membre dans https://iteam-s.mg
 - http://tsiory.iteam-s.mg
 - http://fabrice.iteam-s.mg
 - http://hasina.iteam-s.mg
+
+
+
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
+
+<h3>CONTRIBUTEURS du projet Portfolio</h3>
+
+![Image des contributeurs GitHub](https://contrib.rocks/image?repo=iTeam-S/Portfolio)
