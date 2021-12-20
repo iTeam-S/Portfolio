@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	    <meta name="description" content="Page présentant le portfolio de chaque membre de l'association ITeams"/>
+	    <meta name="description" content="Page présentant le portfolio de <?= $fullname; ?> membre de l'association iTeam-$"/>
 	    <meta name="author" content="Gaetan Jonathan"/>
 	    <meta name="keywords" content="portfolio, membres, iteams, association, jeunes"/>
 	    <!-- Page title -->
@@ -20,6 +20,11 @@
 		<link rel="stylesheet" href="./libs/css/owl.theme.default.min.css" />
 		<link rel="stylesheet" href="./libs/css/aos.css" />
 		<link rel="stylesheet" href="./libs/css/style.css" />
+        <link rel="stylesheet" href="./libs/css/wdcss.css" />
+        
+        <?php
+            if ( $dark_mode == 1 ) echo '<link rel="stylesheet" href="./libs/css/dark.css" />';
+        ?>
 	    <link rel="stylesheet" href="./libs/bootstrap/css/style.css">
 	    <link rel="stylesheet" type="text/css" href="./libs/css/pinegram.min.css">
 	    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
@@ -32,7 +37,7 @@
 		<a href="javascript:void(0);" class="close-menu"></a>
 		<div class="box-inner"></div>
 	</div>
-    
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" id="header">
         <div class="container">
@@ -46,12 +51,37 @@
                 <div class="main-menu-wrapper"></div>
                 <div id="navbarSupportedContent" class="main-navigation" data-width="1007">
                     <ul id="menu-main-menu" class="nav menu-nav clone-main-menu kunka-nav main-menu">
-                        <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 16px;">Accueil</a></li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 16px;">A propos</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 16px;">Compétences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 16px;">Expériences</a> </li>
-                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 16px;">Formations</a> </li>  
-             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="5" style="font-size: 16px;">Contacts</a> </li>          
+                        <li class="nav-item menu-item page-active"> <a class="nav-link active" href="#particles-js" data-scroll-nav="0" style="font-size: 14px;">Accueil</a></li>
+                        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#about" data-scroll-nav="1" style="font-size: 14px;">A propos</a> </li>
+                        <?php
+                            $skills=$result3->fetchAll();
+                            $experiences=$result4->fetchAll();
+                            $educations=$result5->fetchAll();
+                            $distinctions=$result6->fetchAll();
+                            $projets=$result7->fetchAll();
+                            $widget=$result8->fetchAll();
+                            if(!empty($skills)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#competences_menu" data-scroll-nav="2" style="font-size: 14px;">Compétences</a> </li>';
+                            }
+                            if(!empty($experiences)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#experience" data-scroll-nav="3" style="font-size: 14px;">Expériences</a> </li>';
+                            }
+                            if(!empty($educations)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#educations_menu" data-scroll-nav="4" style="font-size: 14px;">Formations</a> </li>';
+
+
+                            }
+                            if(!empty($distinctions)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#distinctions" data-scroll-nav="5" style="font-size: 14px;">Prix et distinctions</a> </li>'; 
+
+                            }
+                            if(!empty($projets)){
+                                echo '<li class="nav-item menu-item"> <a class="nav-link text-white" href="#projets" data-scroll-nav="6" style="font-size: 14px;">Projets</a> </li>';
+                            }
+                            
+                            
+                        ?>
+             	        <li class="nav-item menu-item"> <a class="nav-link text-white" href="#contact_menu" data-scroll-nav="7" style="font-size: 14px;">Contact</a> </li>
                     </ul>
                 </div>
             </nav>
@@ -71,10 +101,10 @@
                             <span class="typewrite" data-period="2000" data-type='<?= json_encode($fonction_pers); ?>'>
                             <span class="wrap"></span></span></span>
                         </h4>
-                        <?php 
+                        <?php
                             if (!empty($cv))
                                 echo '<a href="'.$cv.'" class="buton buton-null mt-30 default-button button-black"><span>Télécharger mon CV</span></a>';
-                            else 
+                            else
                                 echo '<a href="#contact_menu" data-scroll-nav="5" class="buton buton-null mt-30 default-button button-black"><span>Me contacter</span></a>';
                         ?>
                     </div>
@@ -100,7 +130,7 @@
                             <img src="<?= $photo_pers; ?>"  alt="">
                         </div>
                         <div class="detailed-profile">
-                            <span class="name" style="world-wrap: break-word !important; "><?= $fullname; ?></span>
+                            <span class="name"><?= $fullname; ?></span>
                             <div class="phone">
                                 <span class="ti-mobile"></span>&nbsp; <?= $tel; ?>
                             </div>
@@ -132,23 +162,24 @@
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
-                        <h4 class="text-white">Compétences</h4>
+                    <?php
+                        if (count($skills) != 0) {
+                            echo '<h4 class="text-white">Compétences</h4>';
+                        }
+                    ?>
+
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up">
-                <?php while ($data3 = $result3->fetch()): 
-                        $nom_comp = $data3["nom"];
-                        $liste_comp = $data3["liste"];
-                ?>
-
-                <div class="feat-item col-lg-4 col-md-6" style="background-color; black !important">
-                    <div class="feat-inner"> <span class="icon <?= $data3["icone"]; ?>"></span>
+                <?php foreach ($skills as $value3) { ?>
+                <div class="feat-item col-lg-4 col-md-6">
+                    <div class="feat-inner"> <span class="icon <?= $value3["icone"]; ?>"></span>
                         <div class="feat-info">
-                            <h5 class="text-white"><?= $nom_comp; ?></h5>
-                            <h6><?= $liste_comp; ?></h6> </div>
+                            <h5 class="text-white"><?= $value3["nom"]; ?></h5>
+                            <h6><?= $value3["liste"]; ?></h6> </div>
                     </div>
                 </div>
-                <?php endwhile; ?>
+                <?php }  ?>
                 </div>
             </div>
         </div>
@@ -158,37 +189,38 @@
 			<div class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4 class="text-white">Expérience</h4>
+                    <?php
+                       
+                        if (count($experiences) != 0) {
+                            echo '<h4 class="text-white">Expériences</h4>';
+                        }
+                    ?>
+
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
 							<div class="col-md-12">
 								<div class="main-timeline">
-                                    <?php while ($data4 = $result4->fetch()): 
-                                        $nom_exp = $data4["nom"];
-                                        $annee_exp = $data4["annee"];
-                                        $type_exp = $data4["type"];
-                                        $description_exp = $data4["description"];
-                                    ?>
+                                    <?php foreach ($experiences as $value4) { ?>
 									<div class="timeline">
 										<div class="icon"></div>
 										<div class="date-content">
 											<div class="date-outer">
 												<span class="date" >
-													<span class="month"><?= $nom_exp; ?></span>
-													<span class="year"><?= $annee_exp; ?></span>
+													<span class="month"><?= $value4["nom"]; ?></span>
+													<span class="year"><?= $value4["annee"]; ?></span>
 												</span>
 											</div>
 										</div>
 										<div class="timeline-content">
-											<h3 class="title text-white"><?= $type_exp; ?></h3>
+											<h3 class="title text-white"><?= $value4["type"]; ?></h3>
 											<p class="description text-grey">
-												<?= $description_exp; ?>   
+												<?= $value4["description"]; ?>
 											</p>
 										</div>
 									</div>
-                                    <?php endwhile; ?>
-							</div> 
+                                <?php }  ?>
+							</div>
 							</div>
 						</div>
 					</div><!--- END COL -->
@@ -202,34 +234,35 @@
 			<div id="educations_menu" class="container">
 				<div class="row">
 					<div class="section-head-green col-md-12">
-						<h4 class="text-white">Formations et diplômes</h4>
+                    <?php
+                         
+                         if (count($educations) != 0) {
+                             echo '<h4 class="text-white">Formations et diplômes</h4>';
+                         }
+                    ?>
+
 					</div>
 					<div class="col-md-12">
 						<div class="main-timeline">
-                             <?php while ($data5 = $result5->fetch()): 
-                                $lieu_form = $data5["lieu"];
-                                $annee_form = $data5["annee"];
-                                $type_form = $data5["type"];
-                                $description_form = $data5["description"];
-                            ?>
+                             <?php foreach ($educations as $value5) { ?>
 							<div class="timeline">
 								<div class="icon"></div>
 								<div class="date-content">
 									<div class="date-outer">
 										<span class="date">
-											<span class="month"><?= $lieu_form; ?></span>
-											<span class="year"><?= $annee_form; ?></span>
+											<span class="month"><?= $value5["lieu"]; ?></span>
+											<span class="year"><?= $value5["annee"]; ?></span>
 										</span>
 									</div>
 								</div>
 								<div class="timeline-content">
-									<h3 class="title text-white"><?= $type_form; ?></h3>
+									<h3 class="title text-white"><?= $value5["type"]; ?></h3>
 									<p class="description text-grey">
-										<?= $description_form; ?>
+										<?= $value5["description"]; ?>
 									</p>
 								</div>
 							</div>
-                            <?php endwhile; ?>
+                            <?php }  ?>
 						</div>
 					</div><!--- END COL -->
 				</div><!--- END ROW -->
@@ -237,98 +270,141 @@
 		</section>
 		<!-- END EDUCATION -->
 
-    <!-- PROJECTS SECTION -->
-        <!--
-		<section class="works section-padding" data-scroll-index="4">
-		<div class="container">
-			<div class="row">
-			<div class="section-head-green col-md-12">
-				<h4>Projets réalisés et en cours</h4>
-			</div>
-			</div>
-			<div class="row">
-			<div class="filtering text-center mb-30 col-sm-12">
-				<div class="filter"> <span data-filter='*' class="active">Tous</span> <span data-filter='.brand'>Web</span> <span data-filter='.web'>Applications Desktop</span> <span data-filter='.graphic'>Application mobile</span> </div>
-			</div>
 
-	<div class="clearfix"></div>
-			<div class="gallery full-width">
-				<div class="isotope-sizer"></div>
-				<div class="col-lg-4 col-md-6 items graphic">
-				<div class="item-img"> <img src="assets/img/portfolio/1.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Graphic</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/1.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items web">
-				<div class="item-img"> <img src="assets/img/portfolio/2.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Design</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/2.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items brand">
-				<div class="item-img"> <img src="assets/img/portfolio/3.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Branding</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/3.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items graphic">
-				<div class="item-img"> <img src="assets/img/portfolio/4.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Graphic</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/4.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items web">
-				<div class="item-img"> <img src="assets/img/portfolio/5.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Design</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/5.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-				<div class="col-lg-4 col-md-6 items brand">
-				<div class="item-img"> <img src="assets/img/portfolio/6.jpg" alt="image">
-					<div class="item-img-overlay">
-					<div class="overlay-info full-width">
-						<p>Project | Branding</p>
-						<h6>Creative Design</h6>
-						<a href="assets/img/portfolio/6.jpg" class="popimg"> <span class="icon"><i class="fa fa-angle-right"></i></span> </a>
-					</div>
-					</div>
-				</div>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-    -->
-<!-- END OF PROJECT -->
+        <!-- START DISTINCTION -->
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
+			<div class="container">
+        
+				<div class="row">
+					<div class="section-head-green col-md-12">
+                        <?php
+                             if (count($distinctions) != 0) {
+                                 echo '<h4 class="text-white">Prix et Distinctions</h4>';
+                             }
+                        ?>
 
-        <!-- Contact -->
-        <section id="contact_menu" class="contact section-padding" data-scroll-index="5">
+					</div>
+					<div class="col-md-12">
+						<div class="main-timeline">
+							<div class="col-md-12">
+								<div class="main-timeline">
+                                    <?php
+                                        foreach ($distinctions as $value6) { ?>
+									<div class="timeline">
+										<div class="icon"></div>
+										<div class="date-content">
+											<div class="date-outer">
+												<span class="date" >
+                                                    <span class="month"><?= $value6["organisateur"]; ?></span>
+													<span class="year"><?= $value6["annee"]; ?></span>
+												</span>
+											</div>
+										</div>
+										<div class="timeline-content">
+											<h3 class="title text-white"><?= $value6["type"]; ?></h3>
+											<p class="description text-grey">
+												<?= $value6["description"]; ?>
+											</p>
+										</div>
+									</div>
+                                    <?php }  ?>
+							</div>
+							</div>
+						</div>
+					</div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END DISTINCTION -->
+
+
+        <!-- START project -->
+		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="6">
+			<div class="container">
+				<div class="row">
+                    <div class="section-head-green col-md-12">
+                        <?php
+                             if (count($projets) != 0) {
+                                 echo '<h4 class="text-white">Projets realisés</h4>';
+                             }
+                        ?>
+
+					</div>
+					<div class="col-md-12">
+                            <center>
+                            <?php foreach ($projets as $value7) { ?>
+                                <div class="mySlides fade">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="<?php echo $value7["pdc"]?>" alt="Avatar">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h2 class="project-name"><?= $value7["nom"]?></h2> 
+                                                <center>
+                                                    <p class="project-p"><?= $value7["description"]?></p> 
+                                                </center>
+                                                <center>
+                                                    <?php
+                                                    $lien=$value7['lien'];
+                                                    $patt="/github/i";
+                                                    if(preg_match($patt,$lien)){
+                                                     echo <<<LIEN
+                                                        <p class="p-button" onclick="window.location.href = '{$value7["lien"]}'">Voir sur github <i class= "fa fa-github" style="font-size: 18px !important"></i></p>
+                                                    LIEN;
+                                                    }else{
+                                                        echo <<<LIEN
+                                                            <p class="p-button" onclick="window.location.href = '{$value7["lien"]}'">Voir le projet <i class= "fa fa-tasks" style="font-size: 18px !important"></i></p>
+                                                        LIEN;
+                                                    }
+                                                    ?>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <?php }  ?>
+                        </center>
+                        <!-- Next and previous buttons -->
+                        <?php
+                             if (count($projets) != 0) {
+                                 echo <<<BUTTON
+                                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>';
+                                BUTTON;
+                             }
+                        ?>
+
+                        
+
+                        <br>
+
+                        <!-- The dots/circles -->
+                        <div style="text-align:center">
+                            <?php
+                                for($i=0;$i<sizeof($projets);$i++){
+                                echo "<span class=\"dot\" onclick=\"currentSlide (".($i+1).")\"></span>";   
+                                }
+                            ?>
+                        </div>
+                           
+					</div><!--- END COL -->
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END project -->
+        <?php foreach ($widget as $value8) { ?>
+            <center>
+                <figure class="wid">
+                    <img src="<?php echo $value8["lien"]?>" alt="widget" />
+                    <figcaption>
+                        <h3 id="tit_wid" onclick="<?php echo "window.location.href = '".$value8["lien"]."'";?>"><?php echo $value8['nom']?></h3>
+                    </figcaption>
+                </figure>
+            </center>
+        <?php }  ?>
+        <!-- Contactactive -->
+        <section id="contact_menu" class="contact section-padding" data-scroll-index="7">
             <div class="container">
                 <div class="row">
                     <div class="section-head-green col-md-12">
@@ -348,7 +424,8 @@
                                     <div class="item"> <span class="icon et-envelope"></span>
                                         <div class="cont">
                                             <p class="text-white"><a href="mailto:<?= $email; ?>"><?= $email; ?></a></p>
-                                            <h6 class="text-grey">Email</h6> </div>
+                                            <h6 class="text-grey">Email</h6> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -366,15 +443,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input id="form_name" type="text" name="name" placeholder="Nom" required="required"> </div>
+                                            <input id="form_name" type="text" name="name" placeholder="Nom" required="required" autocomplete="off"> </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input id="form_email" type="email" name="email" placeholder="Email" required="required"> </div>
+                                       <input id="form_email" type="email" name="email" placeholder="Email" required="required" autocomplete="off"> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="form_subject" type="text" name="subject" placeholder="Objet"> </div>
+                                            <input id="form_subject" type="text" name="subject" placeholder="Objet" autocomplete="off"> </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -382,10 +459,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-center">
-                                        <span class="buton buton-bg" style="cursor:pointer !important">Envoyer</span>
+                                        <button type="submit" class="buton buton-bg" style="width: 125px; cursor:pointer !important" autocomplete="none">Envoyer</button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="loader" style="display:none;">
+                                <div class="loader-center">
+                                    <img src="./libs/img/loader.gif" alt="chargement en cours"/>
+                                </div>
+                            <div>
                         </form>
                     </div>
                 </div>
@@ -402,7 +484,7 @@
                         <!-- Footer Logo -->
                         <div class="footer-logo">
                             <img style="width: 3% !important" src="../libs/img/iteams.png" class="logo-img" alt="">
-                        </div> 
+                        </div>
                         <!-- Social Media -->
                         <div class="social">
                             <a href="https://facebook.com<?= $facebook; ?>"><i class="fa fa-facebook-f"></i></a>
@@ -417,11 +499,11 @@
         </footer>
     </div>
 
-    <?php 
-        $result1->closeCursor(); 
-        $result3->closeCursor(); 
-        $result4->closeCursor(); 
-        $result5->closeCursor(); 
+    <?php
+        $result1->closeCursor();
+        $result3->closeCursor();
+        $result4->closeCursor();
+        $result5->closeCursor();
     ?>
 
     <!-- jQuery -->
@@ -439,6 +521,9 @@
     <script src="./libs/js/particles.min.js"></script>
     <script src="./libs/js/autotype.js"></script>
     <script src='./libs/js/aos.js'></script>
+    <script src='./libs/js/wscript.js'></script>
     <script src="./libs/js/scripts.js"></script>
+    <script src="./libs/js/proj.js"></script>
+
 </body>
 </html>
