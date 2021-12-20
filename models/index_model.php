@@ -4,8 +4,8 @@
     function dbconnect()
     {
         $servername = "iteam-s.mg";
-        $username = "";
-        $password = "";
+        $username = "iteams";
+        $password = "__root__21__";
         $pdb="mysql:host=$servername;dbname=ITEAMS;utf8mb4";
 
         try 
