@@ -15,10 +15,11 @@
             $mbr= $res->fetch();
             $id = $mbr["id"];
 
+        } else {
+               // redirect to member list if not set
+               header('Location: https://iteam-s.mg/view/membre.html');
         }
         
-
-
         /* Checking the about infos */
 
             $sql1 = "SELECT * FROM membre WHERE id = :id AND actif = 1;";
@@ -73,6 +74,14 @@
         $github = $membre_info["user_github"];
         $linkedin = $membre_info["linkedin"];
         $dark_mode = $membre_info["dark"];
+
+        /* mailing */
+        $mail_username = "";
+        $mail_password = "";
+        $client_email  = $_POST['email']   ?? NULL;
+        $client_name   = $_POST['name']    ?? NULL;
+        $subject       = $_POST['subject'] ?? NULL;
+        $message       = $_POST['message'] ?? NULL;
 
 
 ?>

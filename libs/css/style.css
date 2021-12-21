@@ -2119,4 +2119,33 @@ img {vertical-align: middle;}
 
 
 
+/* ----------- gestion de loader pendant l'envoie mail -------- */
+.loader {
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    filter: alpha(opacity=100);
+    opacity: 0.6;
+    -moz-opacity: 0.8;
+}
+
+.loader-center{
+    z-index: 1000;
+    margin: 300px auto;
+    padding: 0px;
+    width: 130px;
+    filter: alpha(opacity=0);
+    opacity: 1;
+    -moz-opacity: 1;
+}
+
+.loader-center img{
+    height: 128px;
+    width: 128px;
+
+}
+
 /* white-space:nowrap  DO NOT DELETE THIS*/ 
