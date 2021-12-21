@@ -38,6 +38,7 @@
 		<div class="box-inner"></div>
 	</div>
 
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" id="header">
         <div class="container">
@@ -88,8 +89,10 @@
         </div>
     </nav>
 
+
     <!-- Content -->
     <div class="craig-side-content">
+
         <!-- Header -->
         <header class="header valign bg-img" data-scroll-index="0" data-overlay-dark="8" data-background="<?=$membre_info["pdc"]?>" data-stellar-background-ratio="0.5">
              <div id="particles-js"></div>
@@ -112,6 +115,7 @@
             </div>
         </header>
 
+
        <!-- About -->
         <div class="section py-6" id="about" role="doc-part" data-scroll-index="1">
             <div class="row">
@@ -120,7 +124,7 @@
                         <h1 class="text-white">A propos de moi</h1>
                         <hr class="theme-style-left">
                         <div>
-                            <h6 style="color: #888;" class="text-grey"><?= $description_pers; ?></h6>
+                            <h6 style="color: #888; line-height:28px" class="text-grey"><?= $description_pers; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -157,7 +161,8 @@
             </div>
         </div>
 
-        <!-- Services -->
+
+        <!-- START COMPETENCES -->
         <div class="services section-padding" id="competences_menu" data-scroll-index="2">
             <div class="container">
                 <div class="row">
@@ -184,7 +189,8 @@
             </div>
         </div>
 
-		<!-- START TIMELINE -->
+
+		<!-- START EXPERIENCES -->
 		<section id="experience" class="my-timeline section-padding" data-scroll-index="3">
 			<div class="container">
 				<div class="row">
@@ -227,9 +233,10 @@
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
 		</section>
-		<!-- END TIMELINE -->
+		<!-- END EXPERIENCES -->
 
-		<!-- START EDUCATION -->
+
+		<!-- START EDUCATIONS -->
 		<section id="education" class="my-education section-padding" data-scroll-index="4">
 			<div id="educations_menu" class="container">
 				<div class="row">
@@ -268,10 +275,10 @@
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
 		</section>
-		<!-- END EDUCATION -->
+		<!-- END EDUCATIONS -->
 
 
-        <!-- START DISTINCTION -->
+        <!-- START DISTINCTIONS -->
 		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="5">
 			<div class="container">
         
@@ -315,10 +322,10 @@
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
 		</section>
-		<!-- END DISTINCTION -->
+		<!-- END DISTINCTIONS -->
 
 
-        <!-- START project -->
+        <!-- START PROJECTS -->
 		<section id="distinctions" class="my-timeline section-padding" data-scroll-index="6">
 			<div class="container">
 				<div class="row">
@@ -370,12 +377,10 @@
                              if (count($projets) != 0) {
                                  echo <<<BUTTON
                                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>';
+                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                 BUTTON;
                              }
                         ?>
-
-                        
 
                         <br>
 
@@ -392,7 +397,9 @@
 				</div><!--- END ROW -->
 			</div><!--- END CONTAINER -->
 		</section>
-		<!-- END project -->
+		<!-- END PROJECTS -->
+
+
         <?php foreach ($widget as $value8) { ?>
             <center>
                 <figure class="wid">
@@ -403,7 +410,9 @@
                 </figure>
             </center>
         <?php }  ?>
-        <!-- Contactactive -->
+
+
+        <!-- START CONTACTS -->
         <section id="contact_menu" class="contact section-padding" data-scroll-index="7">
             <div class="container">
                 <div class="row">
@@ -473,7 +482,7 @@
                 </div>
             </div>
         </section>
-
+        <!-- END CONTACTS -->
 
 
         <!-- Footer -->
