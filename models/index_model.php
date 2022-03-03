@@ -1,11 +1,12 @@
 <?php
 	/*test if the it can connect to the DATABASE*/
     /*fetch the DATABASE*/
+    include('/var/www/env.php');
     function dbconnect()
     {
         $servername = "iteam-s.mg";
-        $username = "";
-        $password = "";
+        $username = $_ENV['ITEAMS_DB_USER'];
+        $password = $_ENV["ITEAMS_DB_PASSWORD"];
         $pdb="mysql:host=$servername;dbname=ITEAMS;utf8mb4";
 
         try 
