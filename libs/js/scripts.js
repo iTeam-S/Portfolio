@@ -373,7 +373,7 @@ $(window).on("load", function () {
                         pop_up_text = "Une erreur s'est produite. Veuillez réesayer"
                     }
 
-                    alertBox = '<div class="alert alert-dismissable"></div>';
+                    alertBox = '<div class="alert alert-dismissable"><button ty>
                     $('#contact-form').find('.messages').html(alertBox);
                     $('#contact-form')[0].reset();
                     $('.loader').hide()
