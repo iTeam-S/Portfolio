@@ -43,7 +43,7 @@
     <nav class="navbar navbar-expand-lg" id="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="https://iteam-s.mg"><!-- <img src="assets/img/iteams.png" class="logo-img" alt="iTeams-$"></a> -->
+            <a class="logo" href="https://iteam-s.mg"/><!-- <img src="assets/img/iteams.png" class="logo-img" alt="iTeams-$">-->
             <a class="menu-bar mobile-navigation" href="javascript:void(0)"> <span class="menu-btn-icon">
                 <span></span> <span></span> <span></span> </span>
             </a>
@@ -95,7 +95,7 @@
 
         <!-- Header -->
         <header class="header valign bg-img" data-scroll-index="0" data-overlay-dark="8" data-background="<?=$membre_info["pdc"]?>" data-stellar-background-ratio="0.5">
-             <div id="particles-js"></div>
+            <div id="particles-js"></div>
             <div class="container">
                 <div class="row">
                     <div class="text-center offset-md-7 offset-xs-6 caption mt-30" data-aos="fade-up">
@@ -176,15 +176,16 @@
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up">
-                <?php foreach ($skills as $value3) { ?>
-                <div class="feat-item col-lg-4 col-md-6">
-                    <div class="feat-inner"> <span class="icon <?= $value3["icone"]; ?>"></span>
-                        <div class="feat-info">
-                            <h5 class="text-white"><?= $value3["nom"]; ?></h5>
-                            <h6><?= $value3["liste"]; ?></h6> </div>
+                    <?php foreach ($skills as $value3) { ?>
+                    <div class="feat-item col-lg-4 col-md-6">
+                        <div class="feat-inner"> <span class="icon <?= $value3["icone"]; ?>"></span>
+                            <div class="feat-info">
+                                <h5 class="text-white"><?= $value3["nom"]; ?></h5>
+                                <h6><?= $value3["liste"]; ?></h6> </div>
+                            </div>
+                        </div>
+                    <?php }  ?>
                     </div>
-                </div>
-                <?php }  ?>
                 </div>
             </div>
         </div>
@@ -476,7 +477,7 @@
                                 <div class="loader-center">
                                     <img src="./libs/img/loader.gif" alt="chargement en cours"/>
                                 </div>
-                            <div>
+                            </div>
                         </form>
                     </div>
                 </div>
