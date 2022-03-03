@@ -5,7 +5,6 @@ Vous pouvez consulter depuis le bouton sur chaque membre dans https://iteam-s.mg
 
 - http://gaetan.iteam-s.mg
 - http://arleme.iteam-s.mg
-- http://haja.iteam-s.mg
 - http://dominick.iteam-s.mg
 - http://nazirah.iteam-s.mg
 - http://ntsoa.iteam-s.mg
@@ -15,7 +14,6 @@ Vous pouvez consulter depuis le bouton sur chaque membre dans https://iteam-s.mg
 - http://princia.iteam-s.mg
 - http://rivo.iteam-s.mg
 - http://angela.iteam-s.mg
-- http://salema.iteam-s.mg
 - http://lahatra.iteam-s.mg
 - http://rojo.iteam-s.mg
 - http://sergio.iteam-s.mg
