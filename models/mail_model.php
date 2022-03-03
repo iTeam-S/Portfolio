@@ -21,7 +21,7 @@ require './libs/PHPMailer/vendor/autoload.php';
         $mail->SMTPAuth   = true;                                   
         $mail->Username   =  $mail_username;                     
         $mail->Password   = $mail_password;                              
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+        $mail->SMTPSecure = 'ssl';            
         $mail->Port       = 465;                                
 
         $mail->setFrom($client_email, $client_email.' - '.$client_name);

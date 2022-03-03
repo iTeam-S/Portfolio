@@ -357,7 +357,7 @@ $(window).on("load", function () {
     $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
             $('.loader').show()
-            var url = window.location.hre
+            var url = window.location.href
             var alertBox
             var responseText
             var pop_up_text = "Message envoyé"
@@ -373,14 +373,11 @@ $(window).on("load", function () {
                         pop_up_text = "Une erreur s'est produite. Veuillez réesayer"
                     }
 
-                    alertBox = '<div class="alert alert-dismissable"><button ty>
+                    alertBox = '<div class="alert alert-dismissable">'+pop_up_text+'</div>'
                     $('#contact-form').find('.messages').html(alertBox);
                     $('#contact-form')[0].reset();
                     $('.loader').hide()
-                    setTimeout(function(){
-                        $('.alert').remove();
-
-                    }, delay);
+                    setTimeout(function(){$('.alert').remove();}, delay);
                 }
             });
             return false;
