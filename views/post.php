@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	    <meta name="description" content="Page présentant le portfolio de <?= $fullname; ?> membre de l'association iTeam-$"/>
+	    <meta name="description" content="<?= $description_pers ?>"/>
 	    <meta name="author" content="Gaetan Jonathan"/>
-	    <meta name="keywords" content="portfolio, membres, iteams, association, jeunes"/>
+	    <meta name="keywords" content="portfolio, membres, iteams, association, jeunes, iTeam-$, Programme SESAME"/>
 	    <!-- Page title -->
-		<title><?= $fullname; ?></title>
+		<title><?= $fullname; ?> Portfolio </title>
 	    <!-- End -->
 		<link rel="shortcut icon" type="image/x-icon" href="../libs/img/iteams.png" />
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
