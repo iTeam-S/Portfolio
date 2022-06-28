@@ -343,8 +343,8 @@
                                 <div class="mySlides fade">
                                     <div class="flip-card">
                                         <div class="flip-card-inner">
-                                            <div class="flip-card-front">
-                                                <img src="<?php echo $value7["pdc"]?>" alt="Avatar">
+                                            <div class="flip-card-front d-flex">
+                                                <img class="m-auto" src="<?php echo $value7["pdc"]?>" alt="Avatar">
                                             </div>
                                             <div class="flip-card-back">
                                                 <h2 class="project-name"><?= $value7["nom"]?></h2> 
